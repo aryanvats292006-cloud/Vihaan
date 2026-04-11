@@ -1,81 +1,100 @@
-# Krishi Bharat APP under the open innovation 
 #  Krishi Bharat
 
-### AI-Powered Digital Farm Management Platform for Rural India
+### AI-Powered Multilingual Digital Farm Intelligence Platform
 
 ---
 
 ##  Overview
 
-Krishi Bharat is an **AI-driven, multi-agent digital platform** designed to empower **small and marginal farmers** by providing **personalized, real-time agricultural intelligence**.
+Krishi Bharat is a **full-stack AI-powered agricultural intelligence platform** designed to support **small and marginal farmers in rural India**.
 
-It integrates:
-
-*  Weather insights
-*  Market intelligence
-*  Livestock health monitoring
-*  AI-based advisory
-
-into a **single unified system**, eliminating fragmented decision-making.
+It integrates **weather data, mandi prices, livestock health, and AI advisory** into a **single, unified, multilingual system** that delivers **simple, actionable insights** via **mobile app, voice interface, and WhatsApp (planned)**.
 
 ---
 
 ##  Problem Statement
 
-Farmers in all over India face:
+Farmers all over India face:
 
-* Lack of real-time localized weather data
-* No access to optimized mandi price insights
-* Limited veterinary support
-* Language and digital literacy barriers
-* Fragmented and unreliable advisory systems
+*  Fragmented agricultural tools
+*  Lack of real-time localized weather insights
+*  No optimized market selling strategy
+*  Limited veterinary support
+*  Language & digital literacy barriers
+*  Low trust in digital advisory systems
 
 ---
 
 ##  Solution
 
-Krishi Bharat uses a **Multi-Agent AI Architecture** to convert raw agricultural data into **simple, actionable recommendations**.
+Krishi Bharat solves this using a **Multi-Agent AI System** that converts raw agricultural data into:
 
-###  Core Idea:
+>  Clear, personalized, and real-time farming decisions
 
-> “Turn complex agricultural data into **clear decisions** for farmers”
+---
+
+##  Core Features
+
+*  **Real-Time Weather & Risk Alerts**
+*  **Smart Mandi Price Optimization**
+*  **Livestock Health Monitoring & Alerts**
+*  **AI-Based Personalized Advisory**
+*  **Voice-Based Interaction (Multilingual)**
+*  **Mobile-First Design for Rural Users**
+*  **Notifications & Alerts System**
+*  **Unified Farm Dashboard**
 
 ---
 
 ##  System Architecture
 
 ```text
-Farmer (App / WhatsApp / Voice)
+User (Mobile App / Voice / WhatsApp)
         ↓
-API Gateway (FastAPI)
+Frontend (Flutter App)
         ↓
-AI Agent Layer
+API Gateway (FastAPI Backend)
+        ↓
+AI Agent Layer (Core Intelligence)
    ├── Weather Agent
    ├── Market Agent
    ├── Livestock Agent
    └── Advisory Orchestrator
         ↓
-External APIs + Database
+External APIs + Internal Database
         ↓
 Decision Engine
         ↓
-Multilingual Output (Text + Voice)
+Multilingual Response (Text + Voice)
 ```
 
 ---
 
-##  AI Agent System
+##  AI Agent Architecture
 
-| Agent              | Function                                 |
-| ------------------ | ---------------------------------------- |
-|  Weather Agent  | Predicts rainfall, frost, climate risks  |
-|  Market Agent    | Analyzes mandi prices & selling strategy |
-|  Livestock Agent | Tracks animal health & vaccinations      |
-|  Advisory Agent  | Combines all insights into final advice  |
+| Agent              | Role                                    |
+| ------------------ | --------------------------------------- |
+|  Weather Agent  | Fetches & analyzes weather data         |
+|  Market Agent    | Predicts mandi price trends             |
+|  Livestock Agent | Tracks animal health & alerts           |
+|  Orchestrator    | Combines all insights into final advice |
 
 ---
 
-##  Tech Stack
+##  Complete Tech Stack
+
+###  Frontend
+
+* Flutter (Dart)
+* Riverpod (State Management)
+* Dio (API Calls)
+* speech_to_text (Voice Input)
+* flutter_tts (Voice Output)
+* Hive (Local Storage)
+* Firebase Auth (OTP Login)
+* Firebase Cloud Messaging (Notifications)
+
+---
 
 ###  Backend
 
@@ -83,45 +102,51 @@ Multilingual Output (Text + Voice)
 * Uvicorn
 * REST APIs
 
-###  AI / ML
+---
 
-* OpenAI / LLMs
-* LangChain / Agent Framework
-* Time-series models (future)
+###  AI / ML Layer
 
-###  Multilingual + Voice
+* OpenAI / LLM APIs
+* LangChain / CrewAI (Agent orchestration)
+* Time-series models (future: price/weather prediction)
+* CNN models (future: crop disease detection)
 
-* Google Translate / IndicTrans
+---
+
+###  Multilingual Support
+
+* IndicTrans / Google Translate API
 * Whisper (Speech-to-Text)
-* TTS APIs
+* Text-to-Speech APIs
+
+---
 
 ###  Database
 
-* MongoDB (farmer profiles)
-* PostgreSQL (structured data)
+* MongoDB (Farmer profiles & dynamic data)
+* PostgreSQL (Structured data)
+* Firebase (Realtime sync & auth)
 
-###  Integrations
+---
+
+###  Cloud & Infrastructure
+
+* AWS / GCP / Azure
+* S3 / Cloud Storage
+* API Gateway
+* Serverless Functions
+
+---
+
+###  External Integrations
 
 * IMD / Weather APIs
 * Agmarknet (mandi prices)
-
-###  Cloud
-
-* AWS / GCP
+* Government agricultural datasets
 
 ---
 
-##  Key Features
-
- Real-time weather alerts
- Smart mandi price recommendations
- Livestock health tracking
- Multilingual voice-based interaction
- WhatsApp integration (planned)
- Personalized advisory
-
----
-
+ 
 ##  Project Structure
 
 ```bash
@@ -137,6 +162,13 @@ krishi-bharat/
 │   ├── requirements.txt
 │   └── .env
 │
+├── frontend/
+│   ├── lib/
+│   │   ├── features/
+│   │   ├── services/
+│   │   ├── providers/
+│   │   └── main.dart
+│
 └── README.md
 ```
 
@@ -144,28 +176,25 @@ krishi-bharat/
 
 ##  Setup Instructions
 
-###  Clone Repository
+###  Backend Setup
 
 ```bash
-git clone https://github.com/your-repo/krishi-bharat.git
-cd krishi-bharat/backend
-```
-
-###  Install Dependencies
-
-```bash
+cd backend
 pip install -r requirements.txt
-```
-
-###  Run Server
-
-```bash
 uvicorn app.main:app --reload
 ```
 
-###  Open API Docs
 
 
+---
+
+###  Frontend Setup
+
+```bash
+cd frontend
+flutter pub get
+flutter run
+```
 
 ---
 
@@ -182,31 +211,47 @@ POST /advisory/
 
 ---
 
+##  User Flow
+
+1. Farmer speaks or types query
+2. App detects language
+3. Query sent to backend
+4. AI agents process data
+5. Response generated
+6. Output delivered in:
+
+   * Text (local language)
+   * Voice (audio response)
+
+---
+
+##  Design Principles
+
+*  Voice-first interaction
+*  Multilingual support
+*  Works in low-connectivity environments
+*  Simple UI for low literacy users
+*  Transparent & explainable recommendations
+
+---
+
 ##  Future Scope
 
-*  IoT Integration (soil sensors, cattle tracking)
-*  Advanced ML predictions (crop yield, disease detection)
-*  WhatsApp & Voice Assistant deployment
-*  Offline-first support for rural areas
-*  Government & NGO integrations
+*  IoT-based smart farming integration
+*  Advanced ML predictions (yield, disease)
+*  WhatsApp bot deployment
+*  Offline-first architecture
+*  Government & NGO partnerships
+*  Farmer analytics dashboard
 
 ---
 
 ##  Business Model
 
-* Freemium model for farmers
-* B2B partnerships with agri कंपनियां
-* Veterinary consultation services
+* Freemium for farmers
+* B2B partnerships (agri कंपनियां, dairy companies)
+* Paid veterinary consultations
 * Government & NGO collaborations
-
----
-
-##  Team
-
-* **Team Name:** Purple Hand Gang
-* **Team Lead:** Alankar Akinchan
-* **Members:** Ayush Kaushik, Rajat Rawal
-* **University:** Delhi Technological University
 
 ---
 
@@ -215,9 +260,10 @@ POST /advisory/
 *  Reduce crop losses
 *  Increase farmer income
 *  Improve livestock health
-*  Enable sustainable agriculture
+*  Promote sustainable agriculture
+*  Bridge rural digital divide
 
----
+
 
 ##  License
 
@@ -225,9 +271,10 @@ MIT License
 
 ---
 
-##  Contributions
+##  Contributing
 
-Pull requests are welcome. For major changes, please open an issue first.
+Contributions are welcome!
+Please open an issue before submitting major changes.
 
 ---
 
@@ -239,3 +286,9 @@ Pull requests are welcome. For major changes, please open an issue first.
 
 ---
 
+##  Contact
+
+For collaborations or queries:
+📧 [[kaushikayush581@gmail.com](mailto:kaushikayush581@gmail.com)]
+
+---
