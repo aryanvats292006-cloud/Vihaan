@@ -64,7 +64,7 @@ Multilingual Output (Text + Voice)
 
 ---
 
-## 🤖 AI Agent System
+##  AI Agent System
 
 | Agent              | Function                                 |
 | ------------------ | ---------------------------------------- |
