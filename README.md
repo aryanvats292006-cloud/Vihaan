@@ -203,9 +203,8 @@ POST /advisory/
 
 ##  Team
 
-* **Team Name:** Purple Hand Gang
-* **Team Lead:** Alankar Akinchan
-* **Members:** Ayush Kaushik, Rajat Rawal
+* **Team Name:** KRISHI BHARAT
+* **Members:** ARYAN VATS,AYUSH KAUSHIK
 * **University:** Delhi Technological University
 
 ---
